@@ -1,7 +1,21 @@
 import React from "react";
 import Head from "next/head";
+import 'tailwindcss/tailwind.css'; // Import Tailwind CSS
+import { useWeb3React } from '@web3-react/core'
+import { injected } from "@/components/wallet/connectors";
+import { User } from 'react-feather'
 
 export function Buy() {
+  const { account, active, activate, chainId, connector, library, deactivate } = useWeb3React()
+
+  async function handleWalletConnect() {
+    try {
+      await activate(injected);
+    } catch (error) {
+      console.error("Error while trying to connect wallet:", error);
+    }
+  }
+
   return (
     <>
       <Head>
@@ -244,11 +258,11 @@ export function Buy() {
             <div className="group">
               <div className="overlap-group-2">
                 <div className="rectangle" />
-                <div className="group-2">
-                  <div className="ellipse-2" />
-                  <img className="icon-search" alt="Icon search" src="./img/icon-search-1.png" />
-                </div>
-                <p className="address-city-town">Address, City, Town, State, Zip Code School</p>
+                <button type="button" className="group-2">
+                  <div className="ellipse-2 hover:bg-indigo-600" />
+                  <img className="icon-search hover:bg-indigo-600" alt="Icon search" src="./img/icon-search.png" />
+                </button>
+                <input className="address-city-town" placeholder="Address, City, Town, State, Zip Code School" />
               </div>
             </div>
           </div>
@@ -264,15 +278,15 @@ export function Buy() {
                 </div>
               </div>
               <div className="buy-rent-sell-invest-wrapper">
-                <div className="buy-rent-sell-invest">Buy|rent|sell|invest</div>
+                <div className="buy-rent-sell-invest">Buy | rent | sell | invest</div>
               </div>
             </div>
             <div className="overlap-group-wrapper">
-              <div className="overlap-group-3">
-                <div className="icon-search-wrapper">
+              <div className="">
+                <input className="address-city-town-2 overlap-group-3" placeholder="Address, City, Town, State, Zip Code School" />
+                <button type="button" className="icon-search-wrapper hover:bg-indigo-600">
                   <img className="img" alt="Icon search" src="./img/icon-search.png" />
-                </div>
-                <p className="address-city-town-2">Address, City, Town, State, Zip Code School</p>
+                </button>
               </div>
             </div>
             <div className="frame-16">
@@ -287,10 +301,21 @@ export function Buy() {
                 <div className="text-wrapper-11"><a href="./marketplace">Marketplace</a></div>
               </div>
               <div className="frame-17">
-                <div className="log-in">Log In</div>
-                <div className="frame-18">
-                  <div className="text-wrapper-12">Sign Up</div>
-                </div>
+                {
+                  account ?
+                    <button type="button" className="frame-18 text-wrapper-12 hover:bg-indigo-600">
+                      <User
+                        size={20}
+                        strokeWidth={1.5}
+                        className="hidden mr-2 md:flex"
+                      />
+                      {account.slice(0, -36)}...{account.substring(38)}
+                    </button>
+                    :
+                    <button type="button" onClick={handleWalletConnect} className="frame-18 text-wrapper-12 hover:bg-indigo-600">
+                      Connect Wallet
+                    </button>
+                }
               </div>
             </div>
           </div>

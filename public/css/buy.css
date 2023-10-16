@@ -483,7 +483,7 @@
   height: 20px;
   left: 10px;
   position: absolute;
-  top: 0;
+  top: 168px;
   width: 23px;
 }
 
@@ -611,16 +611,16 @@
 }
 
 .buy .address-city-town-2 {
-  color: #000000;
+  /* color: #000000;
   font-family: "Montserrat", Helvetica;
   font-size: 20px;
   font-weight: 200;
   left: 19px;
   letter-spacing: 0;
   line-height: 24px;
-  position: absolute;
+  position: absolute; */
   text-align: center;
-  top: 23px;
+  /* top: 23px; */
   white-space: nowrap;
 }
 

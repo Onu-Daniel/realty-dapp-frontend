@@ -1,7 +1,21 @@
 import React from "react";
 import Head from "next/head";
+import 'tailwindcss/tailwind.css'; // Import Tailwind CSS
+import { useWeb3React } from '@web3-react/core'
+import { injected } from "@/components/wallet/connectors";
+import { User } from 'react-feather'
 
 export function Agent() {
+  const { account, active, activate, chainId, connector, library, deactivate } = useWeb3React()
+
+  async function handleWalletConnect() {
+    try {
+      await activate(injected);
+    } catch (error) {
+      console.error("Error while trying to connect wallet:", error);
+    }
+  }
+
   return (
     <>
       <Head>
@@ -50,16 +64,27 @@ export function Agent() {
                 </div>
                 <div className="navbar">
                   <div className="text-wrapper-4"><a href="./">Buy</a></div>
-                  <div className="text-wrapper-5"><a href="./rent">Rent</a></div>
-                  <div className="text-wrapper-6"><a href="./agent">Agent</a></div>
+                  <div className="text-wrapper-6"><a href="./rent">Rent</a></div>
+                  <div className="text-wrapper-5"><a href="./agent">Agent</a></div>
                   <div className="text-wrapper-7"><a href="./sell">Sell</a></div>
                   <div className="text-wrapper-8"><a href="./marketplace">Marketplace</a></div>
                 </div>
                 <div className="frame-9">
-                  <div className="log-in">Log In</div>
-                  <div className="frame-10">
-                    <div className="text-wrapper-9">Sign Up</div>
-                  </div>
+                  {
+                    account ?
+                      <button type="button" className="frame-10 text-wrapper-9 hover:bg-indigo-600">
+                        <User
+                          size={20}
+                          strokeWidth={1.5}
+                          className="hidden mr-2 md:flex"
+                        />
+                        {account.slice(0, -36)}...{account.substring(38)}
+                      </button>
+                      :
+                      <button type="button" onClick={handleWalletConnect} className="frame-10 text-wrapper-9 hover:bg-indigo-600">
+                        Connect Wallet
+                      </button>
+                  }
                 </div>
               </div>
             </div>
