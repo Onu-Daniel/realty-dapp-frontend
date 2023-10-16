@@ -97,7 +97,7 @@ export function Rent() {
           </div>
           <div className="overlap-2">
             <div className="frame-7">
-              <div className="text-wrapper-10">N2,000</div>
+              <div className="text-wrapper-10">N2,000,000</div>
               <p className="p">
                 11124 Grace Avenue,
                 <br />
@@ -189,14 +189,14 @@ export function Rent() {
           </div>
           <div className="overlap-6">
             <div className="frame-7">
-              <div className="text-wrapper-15">N40,000</div>
+              <div className="text-wrapper-15">N4,000,000</div>
               <p className="p">
                 11124 Sdake Avenue,
                 <br />
                 german Street, Sd 2025
               </p>
               <p className="element-bed-2">
-                <span className="span">1 </span>
+                <span className="span">4 </span>
                 <span className="text-wrapper-11">bed</span>
               </p>
               <p className="element-bath">
@@ -281,14 +281,14 @@ export function Rent() {
           </div>
           <div className="overlap-9">
             <div className="frame-7">
-              <div className="text-wrapper-17">N7,000</div>
+              <div className="text-wrapper-17">N7,000,000</div>
               <p className="p">
                 11124 Grace Avenue,
                 <br />
                 german Street, Sd 2025
               </p>
               <p className="element">
-                <span className="span">7</span>
+                <span className="span">5 </span>
                 <span className="text-wrapper-11">bed</span>
               </p>
               <p className="element-bath">

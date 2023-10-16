@@ -42,7 +42,7 @@ export function Marketplace() {
             </div>
             <p className="investors-around-the">
               <span className="text-wrapper">
-                investors around the globe can buy into the real estate market through&nbsp;&nbsp;tokenized ownership.
+                Investors around the globe can buy into the real estate market through&nbsp;&nbsp;tokenized ownership.
                 Powered by{" "}
               </span>
               <span className="span">blockchain</span>
